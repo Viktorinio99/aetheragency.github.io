@@ -57,11 +57,6 @@
       text-decoration: none;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
     .container {
       width: min(var(--container), calc(100% - 40px));
       margin: 0 auto;
@@ -338,65 +333,47 @@
     .project {
       border-radius: 28px;
       border: 1px solid var(--line-soft);
-      background: rgba(255,255,255,0.025);
-      padding: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+      padding: 30px 24px;
       transition: 0.28s ease;
       box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(255,255,255,0.08), transparent 28%);
+      pointer-events: none;
     }
 
     .project:hover {
       transform: translateY(-5px);
       border-color: rgba(255,255,255,0.15);
-      background: rgba(255,255,255,0.04);
-    }
-
-    .project-media {
-      aspect-ratio: 16 / 10;
-      border-radius: 20px;
-      margin-bottom: 18px;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.06);
-      background:
-        linear-gradient(135deg, rgba(255,255,255,0.11), rgba(255,255,255,0.02)),
-        linear-gradient(180deg, #12161f 0%, #0d1016 100%);
-    }
-
-    .project-media::before {
-      content: "";
-      position: absolute;
-      inset: 14px;
-      border-radius: 14px;
-      border: 1px dashed rgba(255,255,255,0.10);
-    }
-
-    .project-media::after {
-      content: "Visual placeholder";
-      position: absolute;
-      left: 18px;
-      bottom: 16px;
-      color: rgba(255,255,255,0.45);
-      font-size: 0.76rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
     }
 
     .project h3 {
       font-size: 1.42rem;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       font-weight: 700;
+      position: relative;
     }
 
     .project p {
       color: rgba(255,255,255,0.66);
       line-height: 1.8;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
+      position: relative;
     }
 
     .tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
+      position: relative;
     }
 
     .tag {
@@ -686,7 +663,6 @@
 
         <div class="work-grid">
           <article class="project">
-            <div class="project-media"></div>
             <h3 data-en="Video Content" data-gr="Video Content">Video Content</h3>
             <p data-en="Cinematic video production focused on storytelling, brand identity, and modern visual impact." data-gr="Κινηματογραφική παραγωγή video με έμφαση στο storytelling, την ταυτότητα του brand και το σύγχρονο οπτικό impact.">
               Cinematic video production focused on storytelling, brand identity, and modern visual impact.
@@ -699,7 +675,6 @@
           </article>
 
           <article class="project">
-            <div class="project-media"></div>
             <h3 data-en="Brand Campaigns" data-gr="Brand Campaigns">Brand Campaigns</h3>
             <p data-en="Visual campaigns created to elevate presence, sharpen image, and communicate a stronger brand direction." data-gr="Οπτικά campaigns που δημιουργούνται για να ενισχύουν την παρουσία, να δυναμώνουν την εικόνα και να επικοινωνούν πιο καθαρά το brand direction.">
               Visual campaigns created to elevate presence, sharpen image, and communicate a stronger brand direction.
@@ -712,7 +687,6 @@
           </article>
 
           <article class="project">
-            <div class="project-media"></div>
             <h3 data-en="Social Media Content" data-gr="Social Media Content">Social Media Content</h3>
             <p data-en="Short-form visuals built for attention, consistency, and a polished digital presence across platforms." data-gr="Short-form visuals σχεδιασμένα για προσοχή, συνέπεια και δυνατή ψηφιακή παρουσία σε όλες τις πλατφόρμες.">
               Short-form visuals built for attention, consistency, and a polished digital presence across platforms.
@@ -725,7 +699,6 @@
           </article>
 
           <article class="project">
-            <div class="project-media"></div>
             <h3 data-en="Creative Direction" data-gr="Creative Direction">Creative Direction</h3>
             <p data-en="From concept to execution, shaping a visual language that feels intentional, elevated, and cohesive." data-gr="Από το concept μέχρι την υλοποίηση, διαμορφώνοντας μια οπτική γλώσσα που δείχνει στοχευμένη, premium και cohesive.">
               From concept to execution, shaping a visual language that feels intentional, elevated, and cohesive.
