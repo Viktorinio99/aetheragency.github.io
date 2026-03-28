@@ -92,6 +92,12 @@
       white-space: nowrap;
     }
 
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
     .nav {
       display: flex;
       gap: 28px;
@@ -106,6 +112,30 @@
 
     .nav a:hover {
       color: var(--text);
+    }
+
+    .lang-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 56px;
+      height: 40px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .lang-btn:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-1px);
     }
 
     .hero {
@@ -146,7 +176,7 @@
       box-shadow: 0 0 18px rgba(255,255,255,0.3);
     }
 
-    .hero h1 {
+    .hero-title {
       font-size: clamp(3.4rem, 8vw, 8.2rem);
       line-height: 0.92;
       letter-spacing: -0.075em;
@@ -154,7 +184,7 @@
       max-width: 840px;
     }
 
-    .hero h1 span {
+    .hero-title-line {
       display: block;
       color: rgba(255,255,255,0.50);
     }
@@ -592,11 +622,15 @@
     <div class="container topbar-inner">
       <a href="#" class="brand">Aether Agency</a>
 
-      <nav class="nav">
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div class="nav-wrap">
+        <nav class="nav">
+          <a href="#work" data-en="Work" data-gr="Έργα">Work</a>
+          <a href="#about" data-en="About" data-gr="Σχετικά">About</a>
+          <a href="#contact" data-en="Contact" data-gr="Επικοινωνία">Contact</a>
+        </nav>
+
+        <button class="lang-btn" onclick="toggleLanguage()">GR</button>
+      </div>
     </div>
   </header>
 
@@ -604,21 +638,23 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow">Video content agency · Creative direction</div>
+          <div class="eyebrow" data-en="Video content agency · Creative direction" data-gr="Agency δημιουργίας video content · Creative direction">
+            Video content agency · Creative direction
+          </div>
 
-          <h1>
-            Content with
-            <span>presence.</span>
+          <h1 class="hero-title">
+            <span id="hero-title-main" data-en="Content with" data-gr="Περιεχόμενο με">Content with</span>
+            <span class="hero-title-line" id="hero-title-line" data-en="presence." data-gr="παρουσία.">presence.</span>
           </h1>
 
-          <p class="hero-text">
+          <p class="hero-text" data-en="Aether Agency creates premium video content for brands, campaigns, and modern storytelling. Built with a cinematic eye, a clean visual language, and a strong sense of identity." data-gr="Η Aether Agency δημιουργεί premium video content για brands, campaigns και σύγχρονο storytelling. Με κινηματογραφική ματιά, καθαρή αισθητική γλώσσα και ισχυρή ταυτότητα.">
             Aether Agency creates premium video content for brands, campaigns, and modern storytelling.
             Built with a cinematic eye, a clean visual language, and a strong sense of identity.
           </p>
 
           <div class="hero-actions">
-            <a href="#work" class="btn btn-primary">View Work</a>
-            <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+            <a href="#work" class="btn btn-primary" data-en="View Work" data-gr="Δες τα Έργα">View Work</a>
+            <a href="#contact" class="btn btn-secondary" data-en="Get in Touch" data-gr="Επικοινωνία">Get in Touch</a>
           </div>
         </div>
 
@@ -626,10 +662,10 @@
           <div class="visual"></div>
 
           <div class="mini-grid">
-            <div class="mini-box">Video Content</div>
-            <div class="mini-box">Brand Campaigns</div>
-            <div class="mini-box">Creative Direction</div>
-            <div class="mini-box">Social Media Visuals</div>
+            <div class="mini-box" data-en="Video Content" data-gr="Video Content">Video Content</div>
+            <div class="mini-box" data-en="Brand Campaigns" data-gr="Brand Campaigns">Brand Campaigns</div>
+            <div class="mini-box" data-en="Creative Direction" data-gr="Creative Direction">Creative Direction</div>
+            <div class="mini-box" data-en="Social Media Visuals" data-gr="Social Media Visuals">Social Media Visuals</div>
           </div>
         </div>
       </div>
@@ -639,11 +675,11 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <div class="section-label">Selected Work</div>
-            <h2 class="section-title">Projects & Services</h2>
+            <div class="section-label" data-en="Selected Work" data-gr="Επιλεγμένα Έργα">Selected Work</div>
+            <h2 class="section-title" data-en="Projects & Services" data-gr="Projects & Services">Projects & Services</h2>
           </div>
 
-          <p class="section-note">
+          <p class="section-note" data-en="A clean luxury layout designed to feel strong now, with placeholders you can later replace with your own videos and visuals." data-gr="Ένα καθαρό luxury layout σχεδιασμένο ώστε να δείχνει δυνατό από τώρα, με placeholders που αργότερα μπορείς να αντικαταστήσεις με τα δικά σου videos και visuals.">
             A clean luxury layout designed to feel strong now, with placeholders you can later replace with your own videos and visuals.
           </p>
         </div>
@@ -651,45 +687,53 @@
         <div class="work-grid">
           <article class="project">
             <div class="project-media"></div>
-            <h3>Video Content</h3>
-            <p>Cinematic video production focused on storytelling, brand identity, and modern visual impact.</p>
+            <h3 data-en="Video Content" data-gr="Video Content">Video Content</h3>
+            <p data-en="Cinematic video production focused on storytelling, brand identity, and modern visual impact." data-gr="Κινηματογραφική παραγωγή video με έμφαση στο storytelling, την ταυτότητα του brand και το σύγχρονο οπτικό impact.">
+              Cinematic video production focused on storytelling, brand identity, and modern visual impact.
+            </p>
             <div class="tags">
-              <span class="tag">Cinematic</span>
-              <span class="tag">Modern</span>
-              <span class="tag">Premium</span>
+              <span class="tag" data-en="Cinematic" data-gr="Cinematic">Cinematic</span>
+              <span class="tag" data-en="Modern" data-gr="Modern">Modern</span>
+              <span class="tag" data-en="Premium" data-gr="Premium">Premium</span>
             </div>
           </article>
 
           <article class="project">
             <div class="project-media"></div>
-            <h3>Brand Campaigns</h3>
-            <p>Visual campaigns created to elevate presence, sharpen image, and communicate a stronger brand direction.</p>
+            <h3 data-en="Brand Campaigns" data-gr="Brand Campaigns">Brand Campaigns</h3>
+            <p data-en="Visual campaigns created to elevate presence, sharpen image, and communicate a stronger brand direction." data-gr="Οπτικά campaigns που δημιουργούνται για να ενισχύουν την παρουσία, να δυναμώνουν την εικόνα και να επικοινωνούν πιο καθαρά το brand direction.">
+              Visual campaigns created to elevate presence, sharpen image, and communicate a stronger brand direction.
+            </p>
             <div class="tags">
-              <span class="tag">Branding</span>
-              <span class="tag">Campaign</span>
-              <span class="tag">Identity</span>
+              <span class="tag" data-en="Branding" data-gr="Branding">Branding</span>
+              <span class="tag" data-en="Campaign" data-gr="Campaign">Campaign</span>
+              <span class="tag" data-en="Identity" data-gr="Identity">Identity</span>
             </div>
           </article>
 
           <article class="project">
             <div class="project-media"></div>
-            <h3>Social Media Content</h3>
-            <p>Short-form visuals built for attention, consistency, and a polished digital presence across platforms.</p>
+            <h3 data-en="Social Media Content" data-gr="Social Media Content">Social Media Content</h3>
+            <p data-en="Short-form visuals built for attention, consistency, and a polished digital presence across platforms." data-gr="Short-form visuals σχεδιασμένα για προσοχή, συνέπεια και δυνατή ψηφιακή παρουσία σε όλες τις πλατφόρμες.">
+              Short-form visuals built for attention, consistency, and a polished digital presence across platforms.
+            </p>
             <div class="tags">
-              <span class="tag">Reels</span>
-              <span class="tag">Content</span>
-              <span class="tag">Strategy</span>
+              <span class="tag" data-en="Reels" data-gr="Reels">Reels</span>
+              <span class="tag" data-en="Content" data-gr="Content">Content</span>
+              <span class="tag" data-en="Strategy" data-gr="Strategy">Strategy</span>
             </div>
           </article>
 
           <article class="project">
             <div class="project-media"></div>
-            <h3>Creative Direction</h3>
-            <p>From concept to execution, shaping a visual language that feels intentional, elevated, and cohesive.</p>
+            <h3 data-en="Creative Direction" data-gr="Creative Direction">Creative Direction</h3>
+            <p data-en="From concept to execution, shaping a visual language that feels intentional, elevated, and cohesive." data-gr="Από το concept μέχρι την υλοποίηση, διαμορφώνοντας μια οπτική γλώσσα που δείχνει στοχευμένη, premium και cohesive.">
+              From concept to execution, shaping a visual language that feels intentional, elevated, and cohesive.
+            </p>
             <div class="tags">
-              <span class="tag">Concept</span>
-              <span class="tag">Production</span>
-              <span class="tag">Aesthetic</span>
+              <span class="tag" data-en="Concept" data-gr="Concept">Concept</span>
+              <span class="tag" data-en="Production" data-gr="Production">Production</span>
+              <span class="tag" data-en="Aesthetic" data-gr="Aesthetic">Aesthetic</span>
             </div>
           </article>
         </div>
@@ -699,25 +743,27 @@
     <section id="about">
       <div class="container about-grid">
         <div>
-          <div class="section-label">About</div>
-          <h2 class="section-title">Minimal form. Strong visual identity.</h2>
+          <div class="section-label" data-en="About" data-gr="Σχετικά">About</div>
+          <h2 class="section-title" data-en="Minimal form. Strong visual identity." data-gr="Μινιμαλιστική φόρμα. Ισχυρή οπτική ταυτότητα.">
+            Minimal form. Strong visual identity.
+          </h2>
         </div>
 
         <div class="about-copy">
-          <p>
+          <p data-en="Aether Agency is built around cinematic storytelling, premium visuals, and content that feels considered from the first frame. The goal is not just to look beautiful, but to create presence, emotion, and a memorable visual impression." data-gr="Η Aether Agency είναι χτισμένη γύρω από το cinematic storytelling, τα premium visuals και το content που δείχνει προσεγμένο από το πρώτο frame. Ο στόχος δεν είναι μόνο να φαίνεται όμορφο, αλλά να δημιουργεί παρουσία, συναίσθημα και μια δυνατή οπτική εντύπωση.">
             Aether Agency is built around cinematic storytelling, premium visuals, and content that feels considered from the first frame.
             The goal is not just to look beautiful, but to create presence, emotion, and a memorable visual impression.
           </p>
 
-          <p>
+          <p data-en="This landing page is designed to work beautifully now as a polished agency presence, and later you can replace every placeholder with real videos, stills, and selected client work." data-gr="Αυτή η landing page είναι σχεδιασμένη ώστε να λειτουργεί από τώρα σαν polished agency παρουσία, και αργότερα μπορείς να αντικαταστήσεις κάθε placeholder με πραγματικά videos, stills και επιλεγμένα client projects.">
             This landing page is designed to work beautifully now as a polished agency presence, and later you can replace every placeholder with real videos, stills, and selected client work.
           </p>
 
           <div class="service-list">
-            <div class="service-item">Video Production</div>
-            <div class="service-item">Brand Content</div>
-            <div class="service-item">Creative Direction</div>
-            <div class="service-item">Social Media Visuals</div>
+            <div class="service-item" data-en="Video Production" data-gr="Παραγωγή Video">Video Production</div>
+            <div class="service-item" data-en="Brand Content" data-gr="Brand Content">Brand Content</div>
+            <div class="service-item" data-en="Creative Direction" data-gr="Creative Direction">Creative Direction</div>
+            <div class="service-item" data-en="Social Media Visuals" data-gr="Social Media Visuals">Social Media Visuals</div>
           </div>
         </div>
       </div>
@@ -728,60 +774,70 @@
         <div class="contact-wrap">
           <div class="contact-grid">
             <div>
-              <div class="section-label">Contact</div>
-              <h2 class="contact-title">Let’s create something elevated.</h2>
+              <div class="section-label" data-en="Contact" data-gr="Επικοινωνία">Contact</div>
+              <h2 class="contact-title" data-en="Let’s create something elevated." data-gr="Ας δημιουργήσουμε κάτι ξεχωριστό.">
+                Let’s create something elevated.
+              </h2>
 
-              <p class="contact-text">
+              <p class="contact-text" data-en="For campaigns, branded content, social media visuals, and creative direction. Fill out the form and let’s talk about your project." data-gr="Για campaigns, branded content, social media visuals και creative direction. Συμπλήρωσε τη φόρμα και ας μιλήσουμε για το project σου.">
                 For campaigns, branded content, social media visuals, and creative direction.
                 Fill out the form and let’s talk about your project.
               </p>
 
               <div class="contact-card">
                 <div class="contact-item">
-                  <div class="contact-label">Email</div>
+                  <div class="contact-label" data-en="Email" data-gr="Email">Email</div>
                   <div class="contact-value">aetheragencypr@gmail.com</div>
                 </div>
 
                 <div class="contact-item">
-                  <div class="contact-label">Instagram</div>
+                  <div class="contact-label" data-en="Instagram" data-gr="Instagram">Instagram</div>
                   <div class="contact-value">@aethervideoagency</div>
                 </div>
 
                 <div class="contact-item">
-                  <div class="contact-label">Location</div>
-                  <div class="contact-value">Crete, Greece</div>
+                  <div class="contact-label" data-en="Location" data-gr="Τοποθεσία">Location</div>
+                  <div class="contact-value" data-en="Crete, Greece" data-gr="Κρήτη, Ελλάδα">Crete, Greece</div>
                 </div>
               </div>
             </div>
 
             <div class="form-card">
-              <h3 class="form-title">Send an Inquiry</h3>
+              <h3 class="form-title" data-en="Send an Inquiry" data-gr="Στείλε Μήνυμα">Send an Inquiry</h3>
 
               <form action="https://formspree.io/f/xreopzvn" method="POST">
                 <div class="form-group">
-                  <label for="name">Name</label>
-                  <input type="text" id="name" name="name" placeholder="Your name" required>
+                  <label for="name" data-en="Name" data-gr="Όνομα">Name</label>
+                  <input type="text" id="name" name="name" placeholder="Your name" required
+                    data-placeholder-en="Your name"
+                    data-placeholder-gr="Το όνομά σου">
                 </div>
 
                 <div class="form-group">
-                  <label for="email">Email</label>
-                  <input type="email" id="email" name="email" placeholder="Your email" required>
+                  <label for="email" data-en="Email" data-gr="Email">Email</label>
+                  <input type="email" id="email" name="email" placeholder="Your email" required
+                    data-placeholder-en="Your email"
+                    data-placeholder-gr="Το email σου">
                 </div>
 
                 <div class="form-group">
-                  <label for="company">Company / Brand</label>
-                  <input type="text" id="company" name="company" placeholder="Company or brand name">
+                  <label for="company" data-en="Company / Brand" data-gr="Εταιρεία / Brand">Company / Brand</label>
+                  <input type="text" id="company" name="company" placeholder="Company or brand name"
+                    data-placeholder-en="Company or brand name"
+                    data-placeholder-gr="Όνομα εταιρείας ή brand">
                 </div>
 
                 <div class="form-group">
-                  <label for="message">Project Details</label>
-                  <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
+                  <label for="message" data-en="Project Details" data-gr="Λεπτομέρειες Project">Project Details</label>
+                  <textarea id="message" name="message" placeholder="Tell us about your project..." required
+                    data-placeholder-en="Tell us about your project..."
+                    data-placeholder-gr="Πες μας λίγα πράγματα για το project σου..."></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Send Message</button>
+                <button type="submit" class="btn btn-primary" data-en="Send Message" data-gr="Αποστολή Μηνύματος">Send Message</button>
               </form>
 
-              <p class="form-note">
+              <p class="form-note" data-en="Messages will be sent through the contact form directly to Aether Agency." data-gr="Τα μηνύματα θα αποστέλλονται μέσω της φόρμας απευθείας στην Aether Agency.">
                 Messages will be sent through the contact form directly to Aether Agency.
               </p>
             </div>
@@ -796,5 +852,39 @@
       Aether Agency © 2026
     </div>
   </footer>
+
+  <script>
+    let currentLanguage = "en";
+
+    function applyLanguage(lang) {
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll("[data-en]").forEach(el => {
+        const text = el.getAttribute("data-" + lang);
+        if (text) {
+          el.textContent = text;
+        }
+      });
+
+      document.querySelectorAll("[data-placeholder-en]").forEach(el => {
+        const placeholder = el.getAttribute("data-placeholder-" + lang);
+        if (placeholder) {
+          el.setAttribute("placeholder", placeholder);
+        }
+      });
+
+      const button = document.querySelector(".lang-btn");
+      if (button) {
+        button.textContent = lang === "en" ? "GR" : "EN";
+      }
+    }
+
+    function toggleLanguage() {
+      currentLanguage = currentLanguage === "en" ? "gr" : "en";
+      applyLanguage(currentLanguage);
+    }
+
+    applyLanguage(currentLanguage);
+  </script>
 </body>
 </html>
