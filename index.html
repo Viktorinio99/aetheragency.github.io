@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aether Agency</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: black;
+      font-family: 'Manrope', sans-serif;
+      background: #050505;
       color: white;
     }
 
     .section {
       padding: 80px 20px;
-      max-width: 1000px;
+      max-width: 900px;
       margin: auto;
     }
 
@@ -23,9 +25,29 @@
       font-size: 60px;
     }
 
-    .project {
-      margin-bottom: 40px;
+    h2 {
+      margin-bottom: 20px;
     }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 12px;
+      border-radius: 10px;
+      border: 1px solid #333;
+      background: #111;
+      color: white;
+    }
+
+    button {
+      padding: 14px;
+      border: none;
+      background: white;
+      color: black;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
   </style>
 </head>
 
@@ -37,33 +59,20 @@
 </div>
 
 <div class="section">
-  <h2>Projects & Services</h2>
-
-  <div class="project">
-    <h3>Video Content</h3>
-    <p>Cinematic video production focused on storytelling and brand identity.</p>
-  </div>
-
-  <div class="project">
-    <h3>Brand Campaigns</h3>
-    <p>High-end visuals designed to elevate brand presence.</p>
-  </div>
-
-  <div class="project">
-    <h3>Social Media Content</h3>
-    <p>Short-form content for strong digital presence.</p>
-  </div>
-
-  <div class="project">
-    <h3>Creative Direction</h3>
-    <p>From concept to execution with a strong visual identity.</p>
-  </div>
-
-</div>
-
-<div class="section">
   <h2>Contact</h2>
-  <p>aetheragencypr@gmail.com</p>
+
+  <form action="https://formspree.io/f/xreopzvn" method="POST">
+    
+    <input type="text" name="name" placeholder="Name" required>
+    
+    <input type="email" name="email" placeholder="Email" required>
+    
+    <textarea name="message" placeholder="Tell me about your project..." required></textarea>
+    
+    <button type="submit">Send Message</button>
+
+  </form>
+
 </div>
 
 </body>
