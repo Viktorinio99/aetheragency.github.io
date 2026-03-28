@@ -5,14 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Aether Agency</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: black;
-      color: white;
-      text-align: center;
-    }
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.bg-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
 
     .hero {
       height: 100vh;
@@ -41,8 +51,14 @@
 <body>
 
 <div class="hero">
-  <h1>Aether Agency</h1>
-  <p>Cinematic content for weddings, brands, and modern stories.</p>
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="video.mp4" type="video/mp4">
+  </video>
+
+  <div class="overlay">
+    <h1>Aether Agency</h1>
+    <p>Cinematic content for weddings, brands, and modern stories.</p>
+  </div>
 </div>
 
 <div class="section">
