@@ -18,13 +18,8 @@
 body{
 margin:0;
 font-family:'Manrope',sans-serif;
-background:var(--bg);
+background:radial-gradient(circle at top, #0a0c12, #050505);
 color:var(--text);
-}
-
-.container{
-width:min(1200px,90%);
-margin:auto;
 }
 
 /* NAV */
@@ -32,7 +27,11 @@ margin:auto;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 0;
+padding:20px 40px;
+position:sticky;
+top:0;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
 }
 
 .brand{
@@ -51,19 +50,21 @@ cursor:pointer;
 
 /* HERO */
 .hero{
-min-height:90vh;
+min-height:100vh;
 display:flex;
 align-items:center;
+padding:60px;
 }
 
 .hero-grid{
 display:grid;
 grid-template-columns:1.2fr 1fr;
-gap:40px;
+gap:50px;
+width:100%;
 }
 
 .hero-title{
-font-size:70px;
+font-size:80px;
 line-height:0.9;
 }
 
@@ -75,12 +76,13 @@ opacity:0.5;
 .hero-text{
 margin-top:20px;
 color:var(--muted);
+font-size:18px;
 }
 
 .btn{
-margin-top:25px;
+margin-top:30px;
 display:inline-block;
-padding:12px 22px;
+padding:14px 28px;
 border-radius:999px;
 border:1px solid var(--line);
 }
@@ -90,17 +92,18 @@ background:white;
 color:black;
 }
 
-/* VIDEO GRID */
+/* VIDEO GRID FIXED */
 .hero-card{
 border:1px solid var(--line);
 padding:12px;
-border-radius:25px;
+border-radius:30px;
 }
 
 .video-grid{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:6px;
+height:500px; /* 🔥 FIX */
 }
 
 .video-grid video{
@@ -112,20 +115,21 @@ border-radius:12px;
 
 /* SECTION */
 section{
-padding:90px 0;
+padding:100px 40px;
 }
 
 /* PROJECTS */
 .work-grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:20px;
+gap:25px;
 }
 
 .project{
 border:1px solid var(--line);
 padding:25px;
-border-radius:20px;
+border-radius:25px;
+background:rgba(255,255,255,0.02);
 }
 
 .project h3{
@@ -148,13 +152,13 @@ margin-right:6px;
 .contact-grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:40px;
+gap:50px;
 }
 
 input,textarea{
 width:100%;
-padding:12px;
-margin-bottom:12px;
+padding:14px;
+margin-bottom:14px;
 border-radius:12px;
 border:none;
 background:#111;
@@ -163,7 +167,7 @@ color:white;
 
 button{
 width:100%;
-padding:14px;
+padding:16px;
 border:none;
 border-radius:999px;
 background:white;
@@ -173,19 +177,23 @@ background:white;
 .hero-grid,.work-grid,.contact-grid{
 grid-template-columns:1fr;
 }
+
+.hero-title{
+font-size:50px;
+}
 }
 </style>
 </head>
 
 <body>
 
-<header class="topbar container">
+<header class="topbar">
 <div class="brand">Aether Agency</div>
 <button class="lang-btn" onclick="toggleLanguage()">GR</button>
 </header>
 
 <section class="hero">
-<div class="container hero-grid">
+<div class="hero-grid">
 
 <div>
 <h1 class="hero-title">
@@ -220,14 +228,14 @@ data-gr="Επικοινωνία">Contact</a>
 </div>
 </section>
 
-<section id="work" class="container">
-<h2 data-en="Projects & Services" data-gr="Projects & Services">Projects & Services</h2>
+<section id="work">
+<h2>Projects & Services</h2>
 
 <div class="work-grid">
 
 <div class="project">
-<h3 data-en="Video Content" data-gr="Video Content">Video Content</h3>
-<p data-en="Cinematic storytelling." data-gr="Κινηματογραφικό storytelling.">Cinematic storytelling.</p>
+<h3>Video Content</h3>
+<p>Cinematic storytelling.</p>
 <div class="tags">
 <span>Cinematic</span>
 <span>Premium</span>
@@ -252,7 +260,7 @@ data-gr="Επικοινωνία">Contact</a>
 </div>
 </section>
 
-<section id="contact" class="container">
+<section id="contact">
 <div class="contact-grid">
 
 <div>
