@@ -8,169 +8,180 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
+:root{
+--bg:#06070a;
+--text:#fff;
+--muted:rgba(255,255,255,0.6);
+--line:rgba(255,255,255,0.1);
+}
+
 body{
-  margin:0;
-  font-family:'Manrope',sans-serif;
-  background:#050505;
-  color:white;
+margin:0;
+font-family:'Manrope',sans-serif;
+background:var(--bg);
+color:var(--text);
 }
 
 .container{
-  width:90%;
-  max-width:1200px;
-  margin:auto;
+width:min(1200px,90%);
+margin:auto;
 }
 
+/* NAV */
 .topbar{
-  padding:20px 0;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 0;
 }
 
 .brand{
-  font-weight:800;
-  letter-spacing:2px;
-}
-
-.nav a{
-  margin:0 10px;
-  color:rgba(255,255,255,0.6);
+font-weight:800;
+letter-spacing:2px;
 }
 
 .lang-btn{
-  border:1px solid rgba(255,255,255,0.2);
-  background:none;
-  color:white;
-  padding:6px 12px;
-  border-radius:20px;
-  cursor:pointer;
+border:1px solid var(--line);
+background:none;
+color:white;
+padding:8px 14px;
+border-radius:999px;
+cursor:pointer;
 }
 
+/* HERO */
 .hero{
-  display:flex;
-  align-items:center;
-  min-height:90vh;
+min-height:90vh;
+display:flex;
+align-items:center;
 }
 
 .hero-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
+display:grid;
+grid-template-columns:1.2fr 1fr;
+gap:40px;
 }
 
 .hero-title{
-  font-size:70px;
-  line-height:0.9;
+font-size:70px;
+line-height:0.9;
 }
 
 .hero-title-line{
-  display:block;
-  opacity:0.5;
+display:block;
+opacity:0.5;
 }
 
 .hero-text{
-  margin-top:20px;
-  color:rgba(255,255,255,0.6);
+margin-top:20px;
+color:var(--muted);
 }
 
 .btn{
-  display:inline-block;
-  margin-top:20px;
-  padding:12px 20px;
-  border-radius:30px;
-  border:1px solid white;
+margin-top:25px;
+display:inline-block;
+padding:12px 22px;
+border-radius:999px;
+border:1px solid var(--line);
 }
 
 .btn-primary{
-  background:white;
-  color:black;
+background:white;
+color:black;
 }
 
+/* VIDEO GRID */
 .hero-card{
-  border:1px solid rgba(255,255,255,0.1);
-  border-radius:20px;
-  padding:10px;
-}
-
-.visual{
-  border-radius:20px;
-  overflow:hidden;
+border:1px solid var(--line);
+padding:12px;
+border-radius:25px;
 }
 
 .video-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:6px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:6px;
 }
 
 .video-grid video{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  border-radius:12px;
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:12px;
 }
 
+/* SECTION */
 section{
-  padding:80px 0;
+padding:90px 0;
 }
 
+/* PROJECTS */
 .work-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
 }
 
 .project{
-  border:1px solid rgba(255,255,255,0.1);
-  padding:20px;
-  border-radius:20px;
+border:1px solid var(--line);
+padding:25px;
+border-radius:20px;
 }
 
 .project h3{
-  margin-bottom:10px;
+margin-bottom:10px;
+}
+
+.project p{
+color:var(--muted);
 }
 
 .tags span{
-  border:1px solid rgba(255,255,255,0.2);
-  padding:6px 10px;
-  border-radius:20px;
-  font-size:12px;
-  margin-right:5px;
+border:1px solid var(--line);
+padding:6px 10px;
+border-radius:999px;
+font-size:12px;
+margin-right:6px;
 }
 
+/* CONTACT */
 .contact-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
 }
 
 input,textarea{
-  width:100%;
-  padding:10px;
-  margin-bottom:10px;
-  border-radius:10px;
-  border:none;
+width:100%;
+padding:12px;
+margin-bottom:12px;
+border-radius:12px;
+border:none;
+background:#111;
+color:white;
 }
 
 button{
-  padding:12px;
-  width:100%;
-  border:none;
-  border-radius:20px;
-  background:white;
+width:100%;
+padding:14px;
+border:none;
+border-radius:999px;
+background:white;
 }
 
+@media(max-width:900px){
+.hero-grid,.work-grid,.contact-grid{
+grid-template-columns:1fr;
+}
+}
 </style>
 </head>
 
 <body>
 
 <header class="topbar container">
-  <div class="brand">Aether Agency</div>
-  <div>
-    <button class="lang-btn" onclick="toggleLanguage()">GR</button>
-  </div>
+<div class="brand">Aether Agency</div>
+<button class="lang-btn" onclick="toggleLanguage()">GR</button>
 </header>
 
 <section class="hero">
@@ -183,16 +194,18 @@ button{
 </h1>
 
 <p class="hero-text"
-data-en="Premium video content for brands."
-data-gr="Premium video content για brands.">
-Premium video content for brands.
+data-en="Aether Agency creates premium video content for brands."
+data-gr="Η Aether Agency δημιουργεί premium video content για brands.">
+Aether Agency creates premium video content for brands.
 </p>
 
-<a href="#contact" class="btn btn-primary">Contact</a>
+<a href="#contact" class="btn btn-primary"
+data-en="Contact"
+data-gr="Επικοινωνία">Contact</a>
 </div>
 
 <div class="hero-card">
-<div class="visual video-grid">
+<div class="video-grid">
 
 <video src="video1.mp4" autoplay muted loop playsinline></video>
 <video src="video2.mp4" autoplay muted loop playsinline></video>
@@ -208,13 +221,13 @@ Premium video content for brands.
 </section>
 
 <section id="work" class="container">
-<h2>Projects & Services</h2>
+<h2 data-en="Projects & Services" data-gr="Projects & Services">Projects & Services</h2>
 
 <div class="work-grid">
 
 <div class="project">
-<h3>Video Content</h3>
-<p>Cinematic storytelling.</p>
+<h3 data-en="Video Content" data-gr="Video Content">Video Content</h3>
+<p data-en="Cinematic storytelling." data-gr="Κινηματογραφικό storytelling.">Cinematic storytelling.</p>
 <div class="tags">
 <span>Cinematic</span>
 <span>Premium</span>
